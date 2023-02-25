@@ -1,0 +1,29 @@
+<div class="container">
+  <form>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Your question</label>
+      <input
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Question"
+      />
+    </div>
+
+    <button
+      (click)="addQuestion(question)"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+  </form>
+
+  <div class="row" *ngFor="let question of questions">
+    <div class="col-4 my-3">
+      <div class="card">
+        <h4>{{ question.question }}</h4>
+        <p>{{ question.answer }}</p>
+      </div>
+    </div>
+  </div>
+</div>
