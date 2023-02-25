@@ -21,8 +21,16 @@
   <div class="row" *ngFor="let question of questions">
     <div class="col-4 my-3">
       <div class="card">
-        <h4>{{ question.question }}</h4>
-        <p>{{ question.answer }}</p>
+        <div class="row">
+          <h4 class="col-12">{{ question.question }}</h4>
+          <p class="col-12">{{ question.answer }}</p>
+        </div>
+        <button
+          (click)="deleteQuestion(question.id)"
+          class="ms-4 btn btn-danger"
+        >
+          Delete
+        </button>
       </div>
     </div>
   </div>

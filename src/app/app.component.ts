@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { QuestonsService } from './questons.service';
 
 @Component({
@@ -7,9 +8,12 @@ import { QuestonsService } from './questons.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  addQuestion(questionString: string) {
-    this.service.addQuestion(questionString).subscribe();
+  addQuestion(questionString: any) {
+    this.service.addQuestion(questionString).subscribe((x) => {
+      this.questions.push(x);
+    });
   }
+
   questions: any;
   question: string = '';
   constructor(private service: QuestonsService) {}
@@ -18,5 +22,10 @@ export class AppComponent implements OnInit {
       this.questions = x;
       console.log(x);
     });
+  }
+
+  deleteQuestion(id: string) {
+    console.log(id);
+    this.service.deleteQuestion(id).subscribe();
   }
 }

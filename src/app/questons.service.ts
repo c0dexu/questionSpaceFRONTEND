@@ -13,9 +13,8 @@ export class QuestonsService {
     return this.http.get(this.apiUrl + '/questions');
   }
 
-  addQuestion(question: string) {
-    console.log(question);
-    return this.http.post(this.apiUrl + '/question', { question });
+  addQuestion(question: any) {
+    return this.http.post(this.apiUrl + '/question', question);
   }
 
   deleteQuestion(id: string) {
